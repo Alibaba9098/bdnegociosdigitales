@@ -74,20 +74,18 @@ Después de la ejecución, se verificaron las tablas `TblVenta`, `tblDetalleVent
 Para finalizar el flujo de trabajo en el repositorio, se deben ejecutar los siguientes comandos en la terminal:
 
 ```bash
-# 1. Crear una rama para la práctica (opcional pero recomendado)
-git checkout -b feature/practica-sp
 
-# 2. Agregar el archivo de documentación y el script SQL
+# 1. Agregar el archivo de documentación y el script SQL
 git add .
 
-# 3. Crear el commit solicitado
+# 2. Crear el commit
 git commit -m "Practica venta en Store Procedure"
 
-# 4. Integrar con la rama principal
+# 3. Integrar con la rama principal
 git checkout main
-git merge feature/practica-sp
+git merge practica-sp
 
-# 5. Subir cambios a GitHub
+# 4. Subir cambios a GitHub
 git push origin main
 ```
 ---
