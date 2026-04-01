@@ -88,4 +88,6 @@ git merge practica-sp
 # 4. Subir cambios a GitHub
 git push origin main
 ```
+![alt text](image-6.png)
+
 ---

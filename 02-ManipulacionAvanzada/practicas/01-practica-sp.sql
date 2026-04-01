@@ -188,5 +188,3 @@ GO
 
 SELECT * FROM CatProducto;
 GO
-
-
