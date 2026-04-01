@@ -43,8 +43,7 @@ BEGIN
                 THROW 50001, 'El cliente especificado no existe en la base de datos.', 1;
             END
 
-            -- 2. VALIDACIÓN DE STOCK (NUEVO)
-            -- Si existe AL MENOS UN producto en la lista que supere el inventario, cancelamos todo.
+            -- 2. Validacion de stock
             IF EXISTS (
                 SELECT 1 
                 FROM @productos p
@@ -55,14 +54,14 @@ BEGIN
                 THROW 50003, 'Stock insuficiente para uno o más productos de la lista.', 1;
             END
 
-            -- 3. Insertar en la tabla TblVenta (Cabecera)
+            -- 3. Insertar en la tabla TblVenta
             INSERT INTO TblVenta (fecha, id_cliente)
             VALUES (GETDATE(), @id_cliente);
 
-            -- Obtener el id de la venta recién insertada
+            -- 4. Obtener el id de la venta recien insertada
             DECLARE @id_venta INT = SCOPE_IDENTITY();
 
-            -- 4. Insertar en la tabla tblDetalleVenta
+            -- 5. Insertar en la tabla tblDetalleVenta
             INSERT INTO tblDetalleVenta (id_venta, id_producto, precio_venta, cantidad_vendido)
             SELECT 
                 @id_venta, 
@@ -72,7 +71,7 @@ BEGIN
             FROM @productos p
             JOIN CatProducto c ON p.id_producto = c.id_producto;
 
-            -- 5. Actualizar la existencia de los productos vendidos
+            -- 6. Actualizar la existencia de los productos vendidos
             UPDATE c
             SET existencia = c.existencia - p.cantidad_vendido
             FROM CatProducto c
