@@ -37,7 +37,15 @@ Para probar esta funcionalidad, se declara una variable del tipo creado anterior
 
 ---
 
-## 4. Pasos para Git (Continuación)
+## 4. Verificación en Base de Datos
+
+Tras la ejecución del script de prueba, se validan los resultados mediante las siguientes tablas:
+
+![alt text](image-11.png)
+
+---
+
+## 5. Pasos para Git (Continuación)
 
 Para finalizar el flujo de trabajo en el repositorio, se deben ejecutar los siguientes comandos en la terminal:
 
